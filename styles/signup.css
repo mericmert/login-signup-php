@@ -27,6 +27,7 @@ form label{
 }
 
 .input-box input {
+    outline: none;
     padding: 7px 9px;
     font-size: 1.2em;
     width: 100%;
@@ -47,4 +48,21 @@ form button{
 form a{
     color: gray;
     text-align: center;
+}
+
+.error {
+    text-align: left;
+    letter-spacing: 1px;
+    background-color: #fcc5c5;
+    color: #f31e1e;
+    width: 100%;
+    padding: 10px;
+}
+
+.error i {
+    color: #f31e1e;
+}
+
+.red-line input{
+    border: 2px solid #f31e1e;
 }

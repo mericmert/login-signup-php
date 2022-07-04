@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/signup.css">
     <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="styles/document.css">
     <title>Digital Transformation</title>
 </head>
 <body>
@@ -22,7 +23,7 @@
         <h1><a href="/">Digital Transformation</a></h1>
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/data">Data</a></li>
+            <li><a href="/documents">Documents</a></li>
             <?php if(!isset($_SESSION["id"])): ?>
             <li><a href="/signup">Sign up <i class="sign in alternate icon"></i></a></li>
             <?php else:?>
@@ -32,26 +33,7 @@
     </nav>
     <section>
         <?php
-            $request = $_SERVER['REQUEST_URI'];
-            switch ($request) {
-                case '/' :
-                    require __DIR__ . '/routes/homepage.php';
-                    break;
-                case '/signup' :
-                    (!isset($_SESSION["id"])) ? require __DIR__ . '/routes/signup.php' : require __DIR__ . '/routes/homepage.php' ;
-                    break;
-                case '/login' :
-                    (!isset($_SESSION["id"])) ? require __DIR__ . '/routes/login.php' : require __DIR__ . '/routes/homepage.php' ;;
-                    break;
-                case '/logout' :
-                        session_destroy();
-                        header("Location:" . "/");
-                        break;
-                default:
-                    http_response_code(404);
-                    break;
-            }
-        
+            include_once "router.php";
         ?>
     </section>
 </body>

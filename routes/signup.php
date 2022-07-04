@@ -12,15 +12,20 @@
         $email = $_POST["email"];
         $password = $_POST["password"];
         $cpassword = md5($password);
+
+        $usernameHashed = mysqli_escape_string($conn, $username);
+        $passwordHashed = mysqli_escape_string($conn, $cpassword);
+        $emailHashed = mysqli_escape_string($conn, $email);
+
         $select_query = "SELECT * FROM users u
-        WHERE u.username = '$username' OR u.email = '$email'";
+        WHERE u.username = '$usernameHashed' OR u.email = '$emailHashed'";
         if($result = mysqli_query($conn,$select_query)){
             if(mysqli_num_rows($result) > 0 ){
                 $isAlreadyExist = true;
             }
             else{
                 $query = "INSERT INTO users (username, email, password) 
-                VALUES ('$username', '$email', '$cpassword')";
+                VALUES ('$usernameHashed', '$emailHashed', '$passwordHashed')";
                 if(mysqli_query($conn, $query)){
                     header("Location:" .  "/login");
                 }

@@ -21,3 +21,48 @@
     box-shadow: -1px 1px 5px 1px rgb(196, 195, 195);
 }
 
+#login-form label{
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+#login-form .input-box input {
+    outline: none;
+    padding: 7px 9px;
+    font-size: 1.2em;
+    width: 100%;
+}
+
+#login-form button{
+    font-size: 1.1rem;
+    cursor: pointer;
+    letter-spacing: 2px;
+    color: rgb(241, 239, 239);
+    border: 0;
+    background: linear-gradient(to right, #00B6C2, #00C392);;
+    border-radius: 5px;
+    margin-top: .7em;
+    padding: 10px;
+}
+
+#login-form a{
+    color: gray;
+    text-align: center;
+}
+
+#login-form .error {
+    text-align: left;
+    letter-spacing: 1px;
+    background-color: #fcc5c5;
+    color: #f31e1e;
+    width: 100%;
+    padding: 10px;
+}
+
+#login-form .error i {
+    color: #f31e1e;
+}
+
+#login-form .red-line input{
+    border: 2px solid #f31e1e;
+}
